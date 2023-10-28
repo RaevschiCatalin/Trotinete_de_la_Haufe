@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image'
+import DisplayLogButton from '../components/DisplayLogButton'
 import WelcomeHeader from '../components/WelcomeHeader'
 export default function Home() {
   return (
@@ -9,8 +10,8 @@ export default function Home() {
         <WelcomeHeader />
 
       </div>
-        <div className="flex flex-col items-center justify-center">
-            <button className="black_btn w-96 h-24"><h1 className="text-4xl font-extrabold">Get a ride</h1></button>
+        <div className="mt-96 items-center">
+            <DisplayLogButton />
         </div>
     </main>
   )

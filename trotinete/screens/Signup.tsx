@@ -51,7 +51,7 @@ const SignUp: React.FC = () => {
         <div className="flex items-center justify-center h-screen">
             <div className="min-w-fit flex-col border bg-white px-6 py-14 shadow-md rounded-xl">
                 <div className="mb-6 flex justify-center">
-                    <Image src="/assets/logo_removed.png" alt="" width={64} height={64} className="w-24 mt-6" />
+                    <Image src={"/assets/asset.svg"} alt="" width={64} height={64} className="w-24 mt-6" />
                 </div>
                 <form onSubmit={handleSubmit} className="w-80 flex flex-col rounded-xl justify-center items-center">
                     <h1 className="text-3xl font-extrabold text-center text-black my-6">Register</h1>

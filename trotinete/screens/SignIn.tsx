@@ -39,7 +39,7 @@ const SignIn: React.FC = () => {
         <div className="flex items-center justify-center h-screen">
             <div className="min-w-fit flex-col border bg-white px-6 py-14 shadow-md rounded-xl">
                 <div className="mb-6 flex justify-center">
-                    <Image src="/assets/logo_removed.png" alt="" width={64} height={64} className="w-24 mt-6" />
+                    <Image src={"/assets/asset.svg"} alt="" width={64} height={64} className="w-24 mt-6" />
                 </div>
                 <p className="text-3xl font-extrabold text-center text-black  mt-6">Log In</p>
                 <form onSubmit={handleSubmit} className="flex flex-col items-center p-24">
