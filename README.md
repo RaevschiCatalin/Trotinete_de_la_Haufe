@@ -32,4 +32,4 @@ Would be cool if I get an internship, if i get it i would tell you 2 hillarious 
 <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white">
 <img src="https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase">
 
-### You got a cool HR btw. Bye!
+### You got a cool HR btw. Ceau Dan. Bye!
