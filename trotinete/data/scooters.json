@@ -1,114 +1,104 @@
 {
-  "scooters":
-          [
-            {
-              "id": "123123",
-                "name": "Scooter 1",
-                "lat": 53.520008,
-                "lng": 14.404954,
-                "battery": 100,
-                "price": 1.9,
-                "currency": "RON",
-                "status": "available"
-            },{
-            "id": "123124",
-              "name": "Scooter 2",
-              "lat": 42.520008,
-              "lng": 23.404954,
-              "battery": 100,
-              "price": 1.9,
-              "currency": "RON",
-              "status": "available"
-          },
-            {
-              "id": "123125",
-                "name": "Scooter 3",
-                "lat": 34.520008,
-                "lng": 54.404954,
-                "battery": 100,
-                "price": 1.9,
-                "currency": "RON",
-                "status": "available"
-            }
-            ,
-            {
-              "id": "123126",
-                "name": "Scooter 4",
-                "lat": 52.5233456,
-                "lng": 13.2323243,
-                "battery": 100,
-                "price": 1.9,
-                "currency": "RON",
-                "status": "available"
-            }
-            ,
-            {
-              "id": "123127",
-                "name": "Scooter 5",
-                "lat": 52.5200238,
-                "lng": 13.445954,
-                "battery": 100,
-                "price": 1.9,
-                "currency": "RON",
-                "status": "available"
-            }
-            ,
-            {
-              "id": "123128",
-                "name": "Scooter 6",
-                "lat": 52.524508,
-                "lng": 13.404544,
-                "battery": 100,
-                "price": 1.9,
-                "currency": "RON",
-                "status": "available"
-            }
-            ,
-            {
-              "id": "123129",
-                "name": "Scooter 7",
-                "lat": 52.5204234,
-                "lng": 13.404954,
-                "battery": 100,
-                "price": 1.9,
-                "currency": "RON",
-                "status": "available"
-            }
-            ,
-            {
-              "id": "123130",
-                "name": "Scooter 8",
-                "lat": 52.522308,
-                "lng": 13.42354,
-                "battery": 100,
-                "price": 1.9,
-                "currency": "RON",
-                "status": "available"
-            }
-            ,
-            {
-              "id": "123131",
-                "name": "Scooter 9",
-                "lat": 52.522308,
-                "lng": 13.423954,
-                "battery": 100,
-                "price": 1.9,
-                "currency": "RON",
-                "status": "available"
-            }
-            ,
-            {
-              "id": "123132",
-                "name": "Scooter 10",
-                "lat": 52.522308,
-                "lng": 13.423954,
-                "battery": 100,
-                "price": 2.9,
-                "currency": "RON",
-                "status": "available"
-            }
-
-
-
-          ]
+  "scooters": [
+    {
+      "id": "123123",
+      "name": "Scooter 1",
+      "lat": 52.520008,
+      "lng": 13.405954,
+      "battery": 100,
+      "price": 1.9,
+      "currency": "RON",
+      "status": "available"
+    },
+    {
+      "id": "123124",
+      "name": "Scooter 2",
+      "lat": 52.520108,
+      "lng": 13.405854,
+      "battery": 100,
+      "price": 1.9,
+      "currency": "RON",
+      "status": "available"
+    },
+    {
+      "id": "123125",
+      "name": "Scooter 3",
+      "lat": 52.519908,
+      "lng": 13.405754,
+      "battery": 100,
+      "price": 1.9,
+      "currency": "RON",
+      "status": "available"
+    },
+    {
+      "id": "123126",
+      "name": "Scooter 4",
+      "lat": 52.520208,
+      "lng": 13.405654,
+      "battery": 100,
+      "price": 1.9,
+      "currency": "RON",
+      "status": "available"
+    },
+    {
+      "id": "123127",
+      "name": "Scooter 5",
+      "lat": 52.520008,
+      "lng": 13.404954,
+      "battery": 100,
+      "price": 1.9,
+      "currency": "RON",
+      "status": "available"
+    },
+    {
+      "id": "123128",
+      "name": "Scooter 6",
+      "lat": 52.520108,
+      "lng": 13.404854,
+      "battery": 100,
+      "price": 1.9,
+      "currency": "RON",
+      "status": "available"
+    },
+    {
+      "id": "123129",
+      "name": "Scooter 7",
+      "lat": 52.519908,
+      "lng": 13.404754,
+      "battery": 100,
+      "price": 1.9,
+      "currency": "RON",
+      "status": "available"
+    },
+    {
+      "id": "123130",
+      "name": "Scooter 8",
+      "lat": 52.520208,
+      "lng": 13.404654,
+      "battery": 100,
+      "price": 1.9,
+      "currency": "RON",
+      "status": "available"
+    },
+    {
+      "id": "123131",
+      "name": "Scooter 9",
+      "lat": 52.520008,
+      "lng": 13.405954,
+      "battery": 100,
+      "price": 1.9,
+      "currency": "RON",
+      "status": "available"
+    },
+    {
+      "id": "123132",
+      "name": "Scooter 10",
+      "lat": 52.520008,
+      "lng": 13.405954,
+      "battery": 100,
+      "price": 2.9,
+      "currency": "RON",
+      "status": "available"
+    }
+  ]
 }

@@ -1,6 +1,8 @@
 
+
+//@ts-nocheck
 import React, { useState, useEffect } from 'react';
-import scooterData from '@/data/scooters.json';
+import scooterData from '../data/scooters.json';
 
 const userLocation = {
     lat: 52.520008,
@@ -8,22 +10,16 @@ const userLocation = {
 };
 
 const ScooterList = () => {
-    const [filteredScooters, setFilteredScooters] = useState([]);
+    const [scooters, setScooters] = useState([]);
+    const [selectedScooter, setSelectedScooter] = useState(null);
 
     useEffect(() => {
-        const updatedScooters = scooterData.scooters.map((scooter) => {
-            const distance = calculateDistance(userLocation, {
-                lat: scooter.lat,
-                lng: scooter.lng,
-            });
-            return { ...scooter, distance };
-        });
 
-        const filtered = updatedScooters.filter(
-            (scooter) => scooter.status === 'available' && scooter.distance <= 5 // Adjust the distance threshold as needed.
+        const availableScooters = scooterData.scooters.filter(
+            (scooter) =>
+                scooter.status === 'available' && calculateDistance(userLocation, scooter) <= 1
         );
-        filtered.sort((a, b) => a.distance - b.distance);
-        setFilteredScooters(filtered);
+        setScooters(availableScooters);
     }, []);
 
     function calculateDistance(location1, location2) {
@@ -46,51 +42,78 @@ const ScooterList = () => {
         return distance;
     }
 
-    function reserveScooter(scooterId) {
-        // Create a copy of the filteredScooters data and update the status to 'reserved'
-        const updatedScooters = filteredScooters.map((scooter) => {
+    function reserveOrActivateScooter(scooterId) {
+        const selected = scooters.find((scooter) => scooter.id === scooterId);
+        if (selected.distance <= 0.01) {
+            selected.status = 'taken';
+        } else {
+            selected.status = 'reserved';
+        }
+
+        const updatedScooterData = scooterData.scooters.map((scooter) => {
             if (scooter.id === scooterId) {
-                return { ...scooter, status: 'reserved' };
+                scooter.status = selected.status;
             }
             return scooter;
         });
 
-        // Update the state with the modified data
-        setFilteredScooters(updatedScooters);
+
+        scooterData.scooters = updatedScooterData;
+
+        setSelectedScooter(selected);
     }
 
-    function activateScooter(scooterId) {
-        // Create a copy of the filteredScooters data and update the status to 'taken'
-        const updatedScooters = filteredScooters.map((scooter) => {
-            if (scooter.id === scooterId) {
-                return { ...scooter, status: 'taken' };
-            }
-            return scooter;
-        });
+    function returnScooter() {
+        if (selectedScooter) {
+            const scooterId = selectedScooter.id;
 
-        // Update the state with the modified data
-        setFilteredScooters(updatedScooters);
+            const updatedScooterData = scooterData.scooters.map((scooter) => {
+                if (scooter.id === scooterId) {
+                    scooter.status = 'available';
+                }
+                return scooter;
+            });
+
+
+            scooterData.scooters = updatedScooterData;
+        }
+
+        setSelectedScooter(null);
     }
+
 
     return (
         <div>
-            {filteredScooters.length > 0 ? (
-                filteredScooters.map((scooter) => (
-                    <div key={scooter.id}>
-                        <h3>{scooter.name}</h3>
-                        <p>Price: {scooter.price} {scooter.currency}</p>
-                        <p>Distance: {scooter.distance.toFixed(2)} km</p>
-                        <p>Status: {scooter.status}</p>
-                        {scooter.status === 'available' && (
-                            <div className="flex gap-3">
-                                <button className="black_btn" onClick={() => reserveScooter(scooter.id)}>Reserve</button>
-                                <button className="outline_btn" onClick={() => activateScooter(scooter.id)}>Activate</button>
-                            </div>
-                        )}
-                    </div>
-                ))
+            {selectedScooter ? (
+                <div>
+                    <h3>{selectedScooter.name}</h3>
+                    <p>Price: {selectedScooter.price} {selectedScooter.currency}</p>
+                    <p>Distance: {selectedScooter && selectedScooter.distance ? selectedScooter.distance.toFixed(2) + " km" : "Distance not available"}</p>
+
+                    <p>Status: {selectedScooter.status}</p>
+                    {selectedScooter.status === 'reserved' ? (
+                        <button className="black_btn" onClick={returnScooter}>Return Scooter</button>
+                    ) : null}
+                </div>
             ) : (
-                <p>No available scooters within the specified distance.</p>
+                <div>
+                    {scooters.length > 0 ? (
+                        scooters.map((scooter) => (
+                            <div key={scooter.id}>
+                                <h3>{scooter.name}</h3>
+                                <p>Price: {scooter.price} {scooter.currency}</p>
+                                <p>Distance: {scooter.distance ? scooter.distance.toFixed(2) + " km" : "Distance not available"}</p>
+
+                                <p>Status: {scooter.status}</p>
+                                <button className="black_btn" onClick={() => reserveOrActivateScooter(scooter.id)}>
+                                    {scooter.status === 'reserved' ? 'Activate Scooter' : 'Reserve Scooter'}
+                                </button>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No available scooters within the specified distance.</p>
+                    )}
+                </div>
             )}
         </div>
     );

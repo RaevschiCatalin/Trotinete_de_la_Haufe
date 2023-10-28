@@ -13,7 +13,7 @@ export const metadata = {
   title: "Scooter Rental",
   description: "An app that allows you to rent a scooter",
   icons: {
-    icon: '/assets/favicon.ico',
+    icon: "./favicon.ico",
   },
 }
 
